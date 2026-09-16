@@ -15,16 +15,33 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-//Method for Fetching the Users
+    //Method for Fetching the Users
     public List<User> getUser(){
         return userRepository.findAll();
     }
-//Method for Creating new Users
+    //Method for Creating new Users
     public User createUser(User user){
         return userRepository.save(user);
     }
-//Method for Fetching Users by ID
+    //Method for Fetching Users by ID
     public User getUserByID(Integer id){
         return userRepository.findById(id).orElseThrow(()-> new UserNotFound("Student Does not Exists with this id " + id));
     }
+
+    //Method for Updating the User
+    public User updateUser(User updatedUser, Integer id){
+        User existingUser = userRepository.findById(id).orElseThrow(()-> new UserNotFound("This User Does not exists"));
+        existingUser.setName(updatedUser.getName());
+        existingUser.setAge(updatedUser.getAge());
+
+        return userRepository.save(existingUser);
+
+    }
+
+    //Method for Deleting the User by ID
+    public void deleteUser(Integer id){
+        userRepository.deleteById(id);
+    }
+
+
 }
