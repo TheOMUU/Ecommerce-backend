@@ -2,6 +2,7 @@ package controller;
 
 import com.example.ecommerce.entity.User;
 import com.example.ecommerce.service.UserService;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.Path;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @PostMapping("/users")
-    public User createUser(@RequestBody User user){
+    public User createUser(@Valid @RequestBody User user){
         return userService.createUser(user);
     }
 
@@ -31,7 +32,7 @@ public class UserController {
     }
 
     @PutMapping("/users")
-    public User updateUser(@RequestBody User user, @PathVariable Integer id){
+    public User updateUser(@Valid @RequestBody User user, @PathVariable Integer id){
         return userService.updateUser(user, id);
     }
 
