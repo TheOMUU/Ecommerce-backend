@@ -16,12 +16,12 @@ public class User {
     @NotBlank
     private String name;
     @Min(18)
-    private int age;
+    private Integer age;
 
     public User(){
 
     }
-    public User(String name, int age){
+    public User(String name, Integer age){
         this.name = name;
         this.age = age;
     }

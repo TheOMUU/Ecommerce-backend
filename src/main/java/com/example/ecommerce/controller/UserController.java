@@ -45,4 +45,9 @@ public class UserController {
         return userService.getUserByName(name);
     }
 
+    @GetMapping(value = "/users", params = "age")
+    public List<User> getUserByAge(@RequestParam Integer age){
+        return userService.getUserByAge(age);
+    }
+
 }

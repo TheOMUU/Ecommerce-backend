@@ -43,10 +43,13 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    //Method for Finding Users by Name
+    //Method for Filtering Users by Name
     public List<User> getUserByName(String name){
         return userRepository.findByName(name);
     }
+
+    //Method for Filtering Users by Age
+    public List<User> getUserByAge(Integer age){ return userRepository.findByAge(age);}
 
 
 
