@@ -1,9 +1,8 @@
-package controller;
+package com.example.ecommerce.controller;
 
 import com.example.ecommerce.entity.User;
 import com.example.ecommerce.service.UserService;
 import jakarta.validation.Valid;
-import jakarta.ws.rs.Path;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -40,4 +39,10 @@ public class UserController {
     public void deleteUser(@PathVariable Integer id){
         userService.deleteUser(id);
     }
+
+    @GetMapping(value = "/users", params = "name")
+    public List<User> getUserByName(@RequestParam(name = "name") String name){
+        return userService.getUserByName(name);
+    }
+
 }

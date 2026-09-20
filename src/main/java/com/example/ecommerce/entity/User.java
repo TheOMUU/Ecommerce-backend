@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
 
@@ -15,7 +15,7 @@ public class User {
     private Integer id;
     @NotBlank
     private String name;
-    @Max(18)
+    @Min(18)
     private int age;
 
     public User(){
