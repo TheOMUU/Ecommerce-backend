@@ -11,5 +11,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Integer> {
     List<User> findByName(String name);
     List<User> findByAge(Integer age);
+    List<User> findByNameAndAge(String name, Integer age);
+    List<User> findByAgeBetween(Integer minAge, Integer maxAge);
 
 }
