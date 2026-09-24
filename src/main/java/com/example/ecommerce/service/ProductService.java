@@ -15,12 +15,29 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
+    //Get All Product
     public List<Product> getAllProduct(){
         return productRepository.findAll();
     }
 
+    //Find Product by ID
     public Product getProductById(Integer id){
         return productRepository.findById(id)
                 .orElseThrow(()-> new ProductNotFound("This Product with this ID is not Available"));
+    }
+
+    //Updating the existing Product
+    public Product updateProduct(Integer id, Product updatedProduct){
+        Product existingProduct = productRepository.findById(id)
+                .orElseThrow(()-> new ProductNotFound("This Product ID is not Available"));
+        existingProduct.setProductName(updatedProduct.getProductName());
+        existingProduct.setProductId(updatedProduct.getProductPrice());
+
+        return productRepository.save(existingProduct);
+    }
+
+    //Deleting the Product
+    public void deleteProductByID(Integer id){
+        productRepository.deleteById(id);
     }
 }
