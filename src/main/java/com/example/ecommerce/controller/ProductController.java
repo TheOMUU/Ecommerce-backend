@@ -3,6 +3,7 @@ package com.example.ecommerce.controller;
 import com.example.ecommerce.entity.Product;
 import com.example.ecommerce.service.ProductService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
