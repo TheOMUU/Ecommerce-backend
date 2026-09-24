@@ -2,9 +2,8 @@ package com.example.ecommerce.controller;
 
 import com.example.ecommerce.entity.Product;
 import com.example.ecommerce.service.ProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +23,20 @@ public class ProductController {
     @GetMapping("/products/{id}")
     public Product getProductById(Integer id){
         return productService.getProductById(id);
+    }
+
+    @PostMapping("/products")
+    public Product addNewProduct(@Valid @RequestBody Product product){
+        return productService.addNewProduct(product);
+    }
+
+    @PutMapping("/products")
+    public Product updateProduct(Integer id, Product product){
+        return productService.updateProduct(id, product);
+    }
+
+    @DeleteMapping("/products")
+    public void deleteProduct(Integer id){
+        productService.deleteProductByID(id);
     }
 }
