@@ -51,14 +51,18 @@ public class UserService {
     //Method for Filtering Users by Age
     public List<User> getUserByAge(Integer age){ return userRepository.findByAge(age);}
 
-    //Method for Searching Users by their Name and Age
-    public List<User> getUserByNameAndAge(String name, Integer age){
-        return userRepository.findByNameAndAge(name, age);
-    }
-
     //Method for Filtering Age of the Users between Min and Max Age
     public List<User> getUserAgeBetween(Integer minAge, Integer maxAge){
         return userRepository.findByAgeBetween(minAge, maxAge);
+    }
+
+    //Method for filtering age
+    public List<User> findByNameAndAge1(String name, int age){
+        return userRepository.findByNameAndAge1(name, age);
+    }
+    //Method if the name contains the letter
+    public List<User> findIfNameContains(String name){
+        return userRepository.findIfNameContains(name);
     }
 
 

@@ -50,14 +50,19 @@ public class UserController {
         return userService.getUserByAge(age);
     }
 
-    @GetMapping(value = "/users", params = {"name", "age"})
-    public List<User> getUserByNameAndAge(@RequestParam String name, @RequestParam Integer age){
-        return userService.getUserByNameAndAge(name, age);
-    }
-
     @GetMapping(value = "/users", params = {"minAge", "maxAge"})
     public List<User> getUserAgeBetween(@RequestParam Integer minAge, @RequestParam Integer maxAge){
         return userService.getUserAgeBetween(minAge, maxAge);
+    }
+
+    @GetMapping(value = "/users", params = {"name", "age"})
+    public List<User> findByNameAndAge1 (@RequestParam String name, @RequestParam int age){
+        return userService.findByNameAndAge1(name, age);
+    }
+
+    @GetMapping(value = "/users", params = "nameContain")
+    List<User>findIfNameContains(@RequestParam String nameContain){
+        return userService.findIfNameContains(nameContain);
     }
 
 }
