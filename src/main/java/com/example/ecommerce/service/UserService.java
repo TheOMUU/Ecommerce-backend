@@ -64,6 +64,8 @@ public class UserService {
     public List<User> findIfNameContains(String name){
         return userRepository.findIfNameContains(name);
     }
+    //Method for obtaining the range of age
+    public List<User> findMinAndMaxAge(int minAge, int maxAge)
 
 
 

@@ -22,4 +22,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("SELECT u FROM User u WHERE u.name LIKE %:nameContain% ")
     List<User> findIfNameContains(@Param("nameContain") String name);
 
+    @Query("SELECT age FROM User u WHERE u.age BETWEEN :minAge AND :maxAge")
+    List<User> findAgeBetweenMaxAndMin(@Param("minAge")int minAge, @Param("maxAge")int maxAge);
+
 }
