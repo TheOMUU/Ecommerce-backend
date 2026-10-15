@@ -55,6 +55,11 @@ public class UserController {
         return userService.getUserAgeBetween(minAge, maxAge);
     }
 
+    @GetMapping(value = "/users", params = {"minAge", "maxAge"})
+    public List<User> getRangeOfAge(@RequestParam int minAge,@RequestParam int maxAge){
+        return userService.findMinAndMaxAge(minAge, maxAge);
+    }
+
     @GetMapping(value = "/users", params = {"name", "age"})
     public List<User> findByNameAndAge1 (@RequestParam String name, @RequestParam int age){
         return userService.findByNameAndAge1(name, age);
